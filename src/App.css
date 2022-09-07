@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -72,6 +72,9 @@ section {
 }
 .columns .column.is-8 {
   width: 66.7%;
+}
+.columns .column.is-12 {
+  width: 100%;
 }
 
 .text-left {
