@@ -24,12 +24,32 @@ function Navbar() {
           </li>
           <li>
             <NavLink to="/about" className={NavbarCSS.linkStyles}>
-              About
+              Sports
             </NavLink>
           </li>
           <li>
             <NavLink to="/contact" className={NavbarCSS.linkStyles}>
-              Contact
+              Life
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className={NavbarCSS.linkStyles}>
+              Travel
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className={NavbarCSS.linkStyles}>
+              Business
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className={NavbarCSS.linkStyles}>
+              Entertainment
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className={NavbarCSS.linkStyles}>
+              Tech
             </NavLink>
           </li>
         <hr/>
