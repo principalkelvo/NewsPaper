@@ -1,6 +1,6 @@
-.news {
-  /* margin: 0 2rem; */
-}
+/* .news {
+  margin: 0 2rem;
+} */
 .news .columns {
   display: flex;
   justify-content: space-around;
@@ -36,7 +36,7 @@ article {
 .container {
     background: #fff;
   width: 100%;
-  border: 1px solid purple;
+  border-left: 1px solid purple;
   padding: 1rem;
 }
 
