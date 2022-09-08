@@ -1,0 +1,82 @@
+.formContainer {
+  background: #fff;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.buttons {
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  font-size: 1.125rem;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  height: 2.5rem;
+  width: 8.25rem;
+  border:1px solid #000;
+  text-shadow: 0 0.0625rem 0 rgba(255, 255, 255, 0.4);
+  /* background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%); */
+  transition: all 0.15s ease;
+}
+
+.buttons button:hover {
+  transform: translateY(-1.6px);
+}
+
+.buttons div button:last-child{
+  margin: 0 0 0 2rem;
+  background: #002e86;
+  color:white;
+}
+
+.buttons select{
+  /* font-size: 1.125rem; */
+  /* display: inline-block; */
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  height: 2.5rem;
+  width: 8.25rem;
+  border:1px solid #000;
+  /* text-shadow: 0 0.0625rem 0 rgba(255, 255, 255, 0.4); */
+  /* background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%); */
+  transition: all 0.15s ease;
+}
+
+select{
+  font-size: 0.9375rem;
+  display: block;
+  width: 60%;
+  border: none;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0.625rem;
+  color:rgb(143, 143, 143);
+}
+
+.imageUpload{
+  background:var(--lightBlue);
+  padding:1rem;
+  border-radius:5px;
+}
+
+.imageUpload div{
+  display:flex;
+  width: 100%;
+  align-items:center;
+  justify-content: center;
+}
+
+.imageUpload div label{
+  width:30%;
+}
