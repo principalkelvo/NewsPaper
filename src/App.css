@@ -80,3 +80,7 @@ section {
 .text-left {
   text-align: left;
 }
+/* hides richtext status bar */
+.jodit-status-bar {
+  visibility: hidden;
+}
