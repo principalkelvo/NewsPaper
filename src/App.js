@@ -1,16 +1,17 @@
+import "./App.css";
 import React, { useEffect, useState } from "react";
-import './App.css';
-// import Hero from "./components/home/Hero";
-// import News from "./components/news/News";
-// import NewsView from "./components/news/NewsView";
-import Form from "./components/forms/Form"
+import { Route, Routes } from "react-router-dom";
+import Hero from "./components/home/Hero";
+import News from "./components/news/News";
+import NewsView from "./components/news/NewsView";
+import Form from "./components/forms/Form";
 
 import Navbar from "./components/navbar/Navbar";
 
-
 function App() {
   //states
-  const [blogs, setBlogs] = useState([])
+  const [blogs, setBlogs] = useState([]);
+  const [search, setSearch] = useState([]);
 
   //get all blogs
   useEffect(() => {
@@ -19,11 +20,27 @@ function App() {
       .then((blogs) => setBlogs(blogs));
   }, []);
 
+  //add blog
+  function handleAddBlog(newBlog) {
+    setBlogs([...blogs, newBlog]);
+  }
+
+  console.log(blogs);
 
   return (
     <div className="App">
-      <Navbar />  
-      <Form />
+      <Navbar search={search} onSearchChange={setSearch} />
+      {/* <Form onAddBlog={handleAddBlog}/> */}
+      <Routes>
+        <Route exact path="/" element={<Hero blogs={blogs}/>} />
+        <Route exact path="/buying" element={<News blogs={blogs}/>} />
+        <Route exact path="/blogs/:id" element={<NewsView blogs={blogs}/>} />
+        <Route
+          exact
+          path="/addBlogs"
+          element={<Form onAddBlog={handleAddBlog} />}
+        />
+      </Routes>
     </div>
   );
 }
