@@ -32,9 +32,13 @@ function App() {
       <Navbar search={search} onSearchChange={setSearch} />
       {/* <Form onAddBlog={handleAddBlog}/> */}
       <Routes>
-        <Route exact path="/" element={<Hero blogs={blogs}/>} />
-        <Route exact path="/buying" element={<News blogs={blogs}/>} />
-        <Route exact path="/blogs/:id" element={<NewsView blogs={blogs}/>} />
+        <Route
+          exact
+          path="/"
+          element={blogs.length > 1 ? <Hero blogs={blogs} /> : null}
+        />
+        <Route exact path="/buying" element={<News blogs={blogs} />} />
+        <Route exact path="/blogs/:id" element={<NewsView blogs={blogs} />} />
         <Route
           exact
           path="/addBlogs"
