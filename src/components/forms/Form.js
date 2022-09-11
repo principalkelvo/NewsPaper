@@ -4,15 +4,53 @@ import RichText from "./RichText";
 import Input from "./Input";
 
 function Form() {
-  const [input, setInput] = useState({});
+  //set value from rich text
+  const [value, setValue] = useState("");
+  //initial value for inputs
+  const [input, setInput] = useState({
+    author: "",
+    title: "",
+    tag: "",
+    caption: "",
+    photographer: "",
+    language: "",
+  });
+  //get image
+  const [file, setFile] = useState();
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
+  function handleImageChange(e) {
+    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+  }
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("category", "category"); //edit
+    formData.append("title", input.title);
+    formData.append("content", value);
+    formData.append("language", input.language);
+    formData.append("photographer", input.photographer);
+    formData.append("caption", input.caption);
+    formData.append("tag", input.tag);
+    formData.append("author_id", 1);
+    formData.append("user_id", 1);
+
+    fetch("http://localhost:9292/blogs", {
+      method: "POST",
+      // headers: {
+      //   "Content-Type": "multipart/form-data",
+      // },
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
   };
+  // console.log(value);
   return (
     <>
       <form onSubmit={handleOnSubmit} className={FormCSS.form}>
@@ -46,7 +84,7 @@ function Form() {
               onChange={handleOnChange}
               label="title"
             />
-            <RichText />
+            <RichText setValue={setValue} />
             <Input
               id="tag"
               type="text"
@@ -59,11 +97,12 @@ function Form() {
               <div>
                 <label>Upload image</label>
                 <Input
-                  id="file"
+                  id="image"
                   type="file"
-                  name="file"
+                  name="image"
+                  accept="image/*"
                   value={input.file}
-                  onChange={handleOnChange}
+                  onChange={handleImageChange}
                 />
               </div>
               <div>
