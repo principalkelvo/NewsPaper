@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 
 import RichTextCSS from "./RichText.module.css";
 
-function RichText(setValue) {
+function RichText({setValue}){
   const editor = useRef(null);
   return (
     <div className={RichTextCSS.editor}>
