@@ -77,4 +77,6 @@ section h1{
   display:flex;
   overflow:auto;
   height:50%;
+  margin: 3rem 0;
+  /* border: 1px solid red; */
 }

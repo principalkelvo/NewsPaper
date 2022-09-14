@@ -1,11 +1,14 @@
 import React from "react";
 import HeroCSS from "./Hero.module.css";
 import News from "../news/News";
+import StoryCard from "../news/StoryCard";
 
 function Hero({ blogs }) {
   // console.log(blogs);
   const featuredBlog = blogs[0];
-  console.log(featuredBlog);
+  const recentBlogs = blogs.slice(1).slice(-3).reverse();
+  const topStories = blogs.sort(() => 0.5 - Math.random()).slice(0, 3);
+  console.log("topStories", topStories);
   return (
     <>
       <header className={HeroCSS.section + " " + HeroCSS.hero}>
@@ -35,13 +38,14 @@ function Hero({ blogs }) {
           <div className="column is-8">
             <h1>Top Stories</h1>
             <div className={"columns is-multiline"}>
-              <News blogs={blogs} />
+              <StoryCard blogs={topStories} />
             </div>
           </div>
 
           <div className="column is-4">
             <h1>Latest Stories</h1>
-            <News blogs={blogs} />
+            {/* gets the latest 3 items === blogs.slice(Math.max(blogs.length - 3, 0))*/}
+            <News blogs={recentBlogs} />
           </div>
         </div>
       </section>
