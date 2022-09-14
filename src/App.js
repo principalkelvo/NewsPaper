@@ -25,7 +25,7 @@ function App() {
     setBlogs([...blogs, newBlog]);
   }
 
-  console.log(blogs);
+  console.log('all blogs',blogs);
 
   return (
     <div className="App">

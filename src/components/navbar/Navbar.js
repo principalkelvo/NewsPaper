@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import NavbarCSS from "./Navbar.module.css";
 import SearchBar from "./SearchBar";
 
-function Navbar({search, onSearchChange}) {
+function Navbar({ search, onSearchChange }) {
   return (
     <>
       <nav className={NavbarCSS.navbar}>
@@ -12,11 +12,11 @@ function Navbar({search, onSearchChange}) {
           World
         </div>
         <div className={NavbarCSS.navbarSearch}>
-        <SearchBar search ={search} onSearchChange={onSearchChange}/>
+          <SearchBar search={search} onSearchChange={onSearchChange} />
         </div>
       </nav>
       <nav className={NavbarCSS.navbarItems}>
-        <ul> 
+        <ul>
           <li>
             <NavLink to="/" className={NavbarCSS.linkStyles}>
               News
@@ -52,7 +52,11 @@ function Navbar({search, onSearchChange}) {
               Tech
             </NavLink>
           </li>
-        <hr/>
+            <NavLink to="/addBlogs" className={NavbarCSS.linkStyles}>
+              <button>Add New Post</button>
+            </NavLink>
+          
+          <hr />
         </ul>
       </nav>
     </>
