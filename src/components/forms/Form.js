@@ -16,7 +16,7 @@ function Form() {
     language: "",
   });
   //get image
-  const [file, setFile] = useState();
+  const [file, setFile] = useState("");
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +49,17 @@ function Form() {
     })
       .then((res) => res.json())
       .then((json) => console.log(json));
+    const clearInputs = {
+      author: "",
+      title: "",
+      tag: "",
+      caption: "",
+      photographer: "",
+      language: "",
+    };
+    setInput(clearInputs);
+    setValue("");
+    setFile("");
   };
   // console.log(value);
   return (
