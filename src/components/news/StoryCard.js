@@ -22,7 +22,14 @@ function StoryCard({ blogs }) {
                   </div>
                   <h1>{blog.title}</h1>
                   <p>{blog.category}</p>
-                  <p>{blog.content.split(" ").slice(0, 20).join(" ")}</p>
+                  <p>
+                    {/* {blog.content.split(" ").slice(0, 20).join(" ")} */}
+
+                  {/* show content as formated text without html tags */}
+                  <span
+                        dangerouslySetInnerHTML={{ __html: blog.content.split(" ").slice(0, 20).join(" ") }}
+                      />
+                  </p>
                 </div>
             </div>
               </Link>

@@ -22,7 +22,12 @@ function Hero({ blogs }) {
                   Andy Karanja - <span>{featuredBlog.created_at}</span>
                 </p>
                 <h1>{featuredBlog.title}</h1>
-                <p className={HeroCSS.content}>{featuredBlog.content}</p>
+                <p className={HeroCSS.content}>
+                  {/* show content as formated text without html tags */}
+                  <span
+                    dangerouslySetInnerHTML={{ __html: featuredBlog.content }}
+                  />
+                </p>
               </figcaption>
             </figure>
           </div>
@@ -38,7 +43,7 @@ function Hero({ blogs }) {
         <div className="columns">
           <div className="column is-8">
             <h1>Top Stories</h1>
-            <div >
+            <div>
               <StoryCard blogs={topStories} />
             </div>
           </div>
