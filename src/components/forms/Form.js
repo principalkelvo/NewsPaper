@@ -3,7 +3,7 @@ import FormCSS from "./Form.module.css";
 import RichText from "./RichText";
 import Input from "./Input";
 
-function Form() {
+function Form({ onAddBlog }) {
   //set value from rich text
   const [value, setValue] = useState("");
   //initial value for inputs
@@ -16,7 +16,7 @@ function Form() {
     language: "",
   });
   //get image
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(" ");
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -28,38 +28,43 @@ function Form() {
   }
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("image", file);
-    formData.append("category", "category"); //edit
-    formData.append("title", input.title);
-    formData.append("content", value);
-    formData.append("language", input.language);
-    formData.append("photographer", input.photographer);
-    formData.append("caption", input.caption);
-    formData.append("tag", input.tag);
-    formData.append("author_id", 1);
-    formData.append("user_id", 1);
+    if (value != null && value.trim() !== "") {
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("category", "category"); //edit
+      formData.append("title", input.title);
+      formData.append("content", value);
+      formData.append("language", input.language);
+      formData.append("photographer", input.photographer);
+      formData.append("caption", input.caption);
+      formData.append("tag", input.tag);
+      formData.append("author_id", 1);
+      formData.append("user_id", 1);
 
-    fetch("http://localhost:9292/blogs", {
-      method: "POST",
-      // headers: {
-      //   "Content-Type": "multipart/form-data",
-      // },
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-    const clearInputs = {
-      author: "",
-      title: "",
-      tag: "",
-      caption: "",
-      photographer: "",
-      language: "",
-    };
-    setInput(clearInputs);
-    setValue("");
-    setFile("");
+      fetch("http://localhost:9292/blogs", {
+        method: "POST",
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((json) => onAddBlog(json));
+      const clearInputs = {
+        author: "",
+        title: "",
+        tag: "",
+        caption: "",
+        photographer: "",
+        language: "",
+      };
+      setValue(" ");
+      setFile(" ");
+      setInput(clearInputs);
+      console.log(value);
+    } else {
+      console.log("Error");
+    }
   };
   // console.log(value);
   return (
