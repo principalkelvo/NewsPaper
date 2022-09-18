@@ -58,10 +58,13 @@ function Form({ onAddBlog }) {
         photographer: "",
         language: "",
       };
-      setValue(" ");
-      setFile(" ");
+      const clearFile = null;
+      const clearValue = "";
+      setValue(clearValue);
+      setFile(clearFile);
       setInput(clearInputs);
       console.log(value);
+      console.log(file);
     } else {
       console.log("Error");
     }
