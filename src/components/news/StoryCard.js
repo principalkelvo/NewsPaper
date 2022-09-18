@@ -3,8 +3,11 @@ import StoryCardCSS from "./StoryCard.module.css";
 import { Link } from "react-router-dom";
 
 function StoryCard({ blogs }) {
+  //not working sorting blogs with dates
   blogs = blogs.sort((a, b) => Date.parse(b) - Date.parse(a));
   console.log("what does it do blogs", blogs);
+
+  //get all blogs from the current app.js
   const allBlog = blogs.map((blog) => (
     <div key={blog.id}>
       <div className={StoryCardCSS.fullCard}>
@@ -40,27 +43,6 @@ function StoryCard({ blogs }) {
   ));
   return (
     <>{allBlog}</>
-    // <div key={blog.id}>
-    //   <div className={StoryCardCSS.fullCard}>
-    //     <div className="columns is-multiline">
-    //       <div className="column is-4">
-    //         <div className={StoryCardCSS.card}>
-    //           <figure className={StoryCardCSS.image}>
-    //             <img src={blog.image} alt={blog.title} />
-    //           </figure>
-    //           <figcaption>
-    //             <h4>CEO Looper</h4>
-    //             <p>NPC breaking news</p>
-    //             <div>
-    //               <p>2k views</p>
-    //               <p>2 min ago</p>
-    //             </div>
-    //           </figcaption>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 
