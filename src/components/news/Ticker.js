@@ -3,8 +3,8 @@ import TickerCSS from "./Ticker.module.css";
 import { Link } from "react-router-dom";
 
 function Ticker({ blogs }) {
-  blogs = blogs.sort((a, b) => Date.parse(b) - Date.parse(a));
-  console.log("what does it do blogs", blogs);
+  // blogs = blogs.sort((a, b) => Date.parse(b) - Date.parse(a));
+  // console.log("what does it do blogs", blogs);
   const allBlog = blogs.map((blog) => (
     <div key={blog.id}>
       <Link className={TickerCSS.link} to={`/blogs/${blog.id}`}>
@@ -13,7 +13,7 @@ function Ticker({ blogs }) {
             <img src={blog.image} alt={blog.title} />
           </figure>
           <div className={TickerCSS.content}>
-            <div>
+            <div className={TickerCSS.time}>
               <p>{blog.created_at}</p>
               <p>2 min ago</p>
             </div>

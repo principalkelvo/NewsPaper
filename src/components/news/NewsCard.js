@@ -3,8 +3,8 @@ import NewsCardCSS from "./NewsCard.module.css";
 import { Link } from "react-router-dom";
 
 function NewsCard({ blogs }) {
-  console.log("blogs", blogs);
-  blogs = blogs.sort((a, b) => Date.parse(b) - Date.parse(a));
+  // console.log("blogs", blogs);
+  // blogs = blogs.sort((a, b) => Date.parse(b) - Date.parse(a));
   const allBlog = blogs.map((blog) => (
     <div key={blog.id}>
       <Link className={NewsCardCSS.link} to={`/blogs/${blog.id}`}>
