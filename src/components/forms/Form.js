@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import FormCSS from "./Form.module.css";
 import RichText from "./RichText";
 import Input from "./Input";
@@ -16,7 +16,9 @@ function Form({ onAddBlog }) {
     language: "",
   });
   //get image
-  const [file, setFile] = useState(" ");
+  const [file, setFile] = useState(null);
+  //resetting the file input using useRef hook (controlled input)
+  const imageInputRef = useRef();
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -58,13 +60,16 @@ function Form({ onAddBlog }) {
         photographer: "",
         language: "",
       };
-      const clearFile = null;
-      const clearValue = "";
-      setValue(clearValue);
-      setFile(clearFile);
-      setInput(clearInputs);
-      console.log(value);
-      console.log(file);
+      // const clearFile = null;
+      setValue(""); //resets the value of the rich text editor
+      setInput(clearInputs); //resets author,title,tag,caption,photographer,and language
+
+      //file resetting
+      imageInputRef.current.value = ""; //resets the name of the file
+      setFile(null); //resets the value of the file input
+      console.log("value", value);
+      console.log("image", file.value);
+      console.log("file", file);
     } else {
       console.log("Error");
     }
@@ -103,7 +108,7 @@ function Form({ onAddBlog }) {
               onChange={handleOnChange}
               label="title"
             />
-            <RichText setValue={setValue} />
+            <RichText setValue={setValue} value={value} />
             <Input
               id="tag"
               type="text"
@@ -122,6 +127,7 @@ function Form({ onAddBlog }) {
                   accept="image/*"
                   value={input.file}
                   onChange={handleImageChange}
+                  innerRef={imageInputRef} //apply the ref to the input,now its controlled
                 />
               </div>
               <div>
