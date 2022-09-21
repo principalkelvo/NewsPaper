@@ -1,6 +1,7 @@
 import React from "react";
 import NewsViewCSS from "./NewsView.module.css";
 import { useParams } from "react-router";
+import parse from "html-react-parser";
 
 function NewsView({ blogs }) {
   const { id } = useParams();
@@ -30,9 +31,14 @@ function NewsView({ blogs }) {
                   <article>
                     <p>
                       {/* show content as formated text without html tags */}
-                      <span
+                      {/* <span
                         dangerouslySetInnerHTML={{ __html: blog.content }}
-                      />
+                      /> */}
+                      <span
+                      // dangerouslySetInnerHTML={{ __html: blog.content.split(" ").slice(0, 20).join(" ") }}
+                      >
+                        {parse(blog.content)}
+                      </span>
                     </p>
                   </article>
                 </div>

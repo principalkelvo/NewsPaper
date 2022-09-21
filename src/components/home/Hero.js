@@ -10,6 +10,7 @@ function Hero({ blogs }) {
   const recentBlogs = blogs.slice(1).slice(-10).reverse();
   const topStories = blogs.sort(() => 0.5 - Math.random()).slice(0, 3);
   console.log("topStories", topStories);
+  console.log("topStories", recentBlogs);
   return (
     <>
       <header className={HeroCSS.section + " " + HeroCSS.hero}>
