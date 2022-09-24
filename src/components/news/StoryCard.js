@@ -20,8 +20,8 @@ function StoryCard({ blogs }) {
                 </figure>
                 <div className={StoryCardCSS.content}>
                   <div>
-                    {/* blog name error */}
-                    {/* <p>{blog.author.name}</p> */}
+                    {/* blog name error done working correctly changed categories backend to have author name */}
+                    <p>{blog.author.name}</p>
                     <p>2 min ago</p>
                   </div>
                   <h1>{blog.title}</h1>
