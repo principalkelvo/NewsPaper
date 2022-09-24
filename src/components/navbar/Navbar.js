@@ -4,7 +4,7 @@ import NavbarCSS from "./Navbar.module.css";
 import SearchBar from "./SearchBar";
 
 function Navbar({ search, onSearchChange, categories }) {
-  console.log("navbar categories", categories);
+  // console.log("navbar categories", categories);
   const allCategories = categories.map((category) => (
     <li key={category.id}>
       <NavLink
