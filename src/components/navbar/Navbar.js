@@ -3,7 +3,18 @@ import { NavLink } from "react-router-dom";
 import NavbarCSS from "./Navbar.module.css";
 import SearchBar from "./SearchBar";
 
-function Navbar({ search, onSearchChange }) {
+function Navbar({ search, onSearchChange, categories }) {
+  console.log("navbar categories", categories);
+  const allCategories = categories.map((category) => (
+    <li key={category.id}>
+      <NavLink
+        to={"/categories/" + category.name}
+        className={NavbarCSS.linkStyles}
+      >
+        {category.name}
+      </NavLink>
+    </li>
+  ));
   return (
     <>
       <nav className={NavbarCSS.navbar}>
@@ -17,12 +28,8 @@ function Navbar({ search, onSearchChange }) {
       </nav>
       <nav className={NavbarCSS.navbarItems}>
         <ul>
-          <li>
-            <NavLink to="/" className={NavbarCSS.linkStyles}>
-              News
-            </NavLink>
-          </li>
-          <li>
+          {allCategories}
+          {/* <li>
             <NavLink to="/about" className={NavbarCSS.linkStyles}>
               Sports
             </NavLink>
@@ -51,11 +58,11 @@ function Navbar({ search, onSearchChange }) {
             <NavLink to="/contact" className={NavbarCSS.linkStyles}>
               Tech
             </NavLink>
-          </li>
-            <NavLink to="/addBlogs" className={NavbarCSS.linkStyles}>
-              <button>Add New Post</button>
-            </NavLink>
-          
+          </li> */}
+          <NavLink to="/addBlogs" className={NavbarCSS.linkStyles}>
+            <button>Add New Post</button>
+          </NavLink>
+
           <hr />
         </ul>
       </nav>
