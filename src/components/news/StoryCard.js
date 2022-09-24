@@ -20,7 +20,8 @@ function StoryCard({ blogs }) {
                 </figure>
                 <div className={StoryCardCSS.content}>
                   <div>
-                    <p>{blog.author.name}</p>
+                    {/* blog name error */}
+                    {/* <p>{blog.author.name}</p> */}
                     <p>2 min ago</p>
                   </div>
                   <h1>{blog.title}</h1>
@@ -29,9 +30,10 @@ function StoryCard({ blogs }) {
                     {/* {blog.content.split(" ").slice(0, 20).join(" ")} */}
 
                     {/* show content as formated text without html tags, you can also use html parser (never tried before) */}
-                    <span
+                    {/* <span
                     // dangerouslySetInnerHTML={{ __html: blog.content.split(" ").slice(0, 20).join(" ") }}
-                    >
+                    > */}
+                    <span>
                       {parse(blog.content.split(" ").slice(0, 20).join(" "))}
                     </span>
                   </p>
