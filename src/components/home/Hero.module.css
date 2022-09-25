@@ -13,13 +13,13 @@
   letter-spacing: 0.11em;
 }
 .image {
-  border: 1px solid red;
+  border: 1px solid black;
   width: 100%;
   height: 22rem;
   position: relative;
   display: flex;
   justify-content: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .image img {
@@ -40,7 +40,7 @@ figcaption {
   flex-direction: column;
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   /* margin-bottom: -50%; */
-  bottom: -50%;
+  top: 50%;
 }
 
 figcaption .author {

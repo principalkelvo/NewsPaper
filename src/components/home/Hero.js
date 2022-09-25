@@ -25,6 +25,7 @@ function Hero({ blogs }) {
                 <h1>{featuredBlog.title}</h1>
                 <p className={HeroCSS.content}>
                   {/* show content as formated text without html tags */}
+                  {/* later take only the first paragraph to be added */}
                   <span
                     dangerouslySetInnerHTML={{ __html: featuredBlog.content }}
                   />
