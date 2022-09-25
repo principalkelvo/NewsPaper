@@ -1,0 +1,18 @@
+.title {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 1rem;
+}
+.title h3 {
+  margin-right: 4rem;
+  text-transform: capitalize;
+}
+
+.title span {
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+.article p {
+  margin: 1rem;
+}
