@@ -2,6 +2,9 @@ import React from "react";
 import NewsViewCSS from "./NewsView.module.css";
 import { useParams } from "react-router";
 import parse from "html-react-parser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter,faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 function NewsView({ blogs }) {
   const { id } = useParams();
@@ -41,6 +44,12 @@ function NewsView({ blogs }) {
                       </span>
                     </p>
                   </article>
+                  {/* adds a facebook and twitter addon button type  */}
+                  <div className ={NewsViewCSS.buttons}>
+                    <button> <FontAwesomeIcon icon={faFacebook} /> <span>Share to Facebook</span></button>
+                    <button><FontAwesomeIcon icon={faTwitter} /> <span>Share to Twitter</span></button>
+                  </div>
+                  
                 </div>
               </div>
             ))}
@@ -67,6 +76,7 @@ function NewsView({ blogs }) {
           </div>
         </div>
       </div>
+      <hr></hr>
     </section>
   );
 }
