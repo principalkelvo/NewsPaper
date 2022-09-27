@@ -10,10 +10,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-function NewsView({ blogs }) {
+function NewsView({ blogs }) {  
   const { id } = useParams();
   console.log("blogs 23", blogs);
   console.log("blogs 23 first", id);
+  const blog = blogs.filter((blog) => String(blog.id) === id)
+  const eachBlog = blog.map((blog) =>  {return blog.comments});
+
+  console.log("blogs last", eachBlog);
   return (
     <section className={NewsViewCSS.news}>
       <div className="columns">
@@ -62,6 +66,7 @@ function NewsView({ blogs }) {
                   </div>
                 </div>
               </div>
+              
             ))}
 
           {/* Ticker  */}
@@ -89,7 +94,7 @@ function NewsView({ blogs }) {
       <hr></hr>
       <div className="columns">
         <div className="column is-12">
-          <Comment/>
+          <Comment comments={eachBlog}/>
         </div>
       </div>
     </section>
