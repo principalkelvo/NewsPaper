@@ -24,13 +24,20 @@ margin: 2rem;
 
 .buttons button:last-child{
     margin-left: .5rem;
-    background: #002e86;
-    color:white;
+    background: #D9D9D9;
+    color:#292929;
+  }
+  .buttons button:not(:last-child){
+    font-weight: 700;
   }
 .buttons button:not(:last-child):hover{
     text-decoration: underline;
+    background: none;
+
   }
 
   .buttons button:hover {
     transform: translateY(-1.6px);
+    background: #b8b8b8;
+
   }
