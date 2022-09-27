@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import Input from "../forms/Input";
 import Comments from "../comments/Comments"
 
-function Comment() {
+function Comment( eachBlog ) {
+  console.log("blogs lastly", eachBlog);
+
   const [input, setInput] = useState({
     comment: "",
   });
@@ -39,7 +41,7 @@ function Comment() {
       </form>
 
       <div className={CommentCSS.form}>
-        <Comments/>
+        <Comments eachBlog={eachBlog}/>
       </div>
     </>
   );
